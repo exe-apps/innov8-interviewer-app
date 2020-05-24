@@ -1,0 +1,6 @@
+// Service related actions
+export const GET_INTERVIEWER_LIST = 'GET_INTERVIEWER_LIST';
+
+// Modal related action
+export const SHOW_INTERVIEWER_INFO_MODAL = 'SHOW_INTERVIEWER_INFO_MODAL';
+export const CLOSE_INTERVIEWER_INFO_MODAL = 'CLOSE_INTERVIEWER_INFO_MODAL';
