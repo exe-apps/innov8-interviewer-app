@@ -35,7 +35,7 @@ class InterviewersPage extends Component {
                                     <Row className='day-info'>
                                         <h1>{day}</h1>
                                     </Row>
-                                    <Row className='interviewer-list-info'>
+                                    <Row className='interviewer-list-info' md={12}>
                                         <InterviewersCard {...this.props} day={day}/>
                                     </Row>
                                     <Row>

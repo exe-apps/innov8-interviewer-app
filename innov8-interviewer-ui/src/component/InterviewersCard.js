@@ -2,7 +2,8 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
-import Badge from 'react-bootstrap/Badge';
+import Col from 'react-bootstrap/Col';
+import BadgeGenerator from './BadgeGenerator';
 import unkownPic from '../img/unknown.jpg';
 import '../css/InterviewersCard.css';
 
@@ -18,11 +19,13 @@ const InterviewersCard = (props) => {
                 interviewerList.map((interviewer, index) => {
                     if(interviewer.daysAvailable.includes(props.day)){
                         return (
-                            <Card className='interviewer-card'>
-                                <Card.Img className='interviewer-img' variant="top" src={unkownPic} />
-                                <Card.Title className='interviewer-name'>{interviewer.name}</Card.Title>
-                                <Button className='interviewer-info-btn' variant="secondary" onClick={() => props.showInterviewerInfoModal(interviewer)}>See info</Button>
-                            </Card>
+                            <Col md={4}>
+                                <Card border='dark' bg='dark' text='white' style={{ margin: 'auto auto 30px auto'}}>
+                                    <Card.Img className='interviewer-img' variant="top" src={unkownPic} />
+                                    <Card.Title className='interviewer-name'>{interviewer.name} <BadgeGenerator interviewer={interviewer}></BadgeGenerator></Card.Title>
+                                    <Button className='interviewer-info-btn' variant="outline-dark" onClick={() => props.showInterviewerInfoModal(interviewer)}>See info</Button>
+                                </Card>
+                            </Col>
                         )
                     }
                 })

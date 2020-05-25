@@ -26,33 +26,38 @@ const InterviewersInfoModal = (props) => {
                     </Figure>
                 </Row>
                 <Row className='info-modal-row'>
-                    <Col><label>Email: {interviewerInfo.email}</label></Col>
-                    <Col><label>Contact #: {interviewerInfo.contactNumber}</label></Col>
+                    <Col><label>Email: <b>{interviewerInfo.email}</b></label></Col>
+                    
                 </Row>
                 <Row className='info-modal-row'>
-                    <Col><label>Area: {interviewerInfo.skill}</label></Col>
-                    <Col><label>CV Reviewer: {interviewerInfo.cvReviewer ? 'Yes' : 'No'}</label></Col>
-                </Row>
-                <Row className='info-modal-row'>
-                    <Col><label>Specialization: {interviewerInfo.specialization}</label></Col>
-                    <Col><label>BBSI Interviewer: {interviewerInfo.bbsiInterviewer ? 'Yes' : 'No'}</label></Col>
+                    
+                    <Col><label>Contact Number: <b>{interviewerInfo.contactNumber}</b></label></Col>
                 </Row>
                 <br/>
                 <Row className='info-modal-row'>
-                    <Col><label>Availability: {interviewerInfo.daysAvailable}</label></Col>
+                    <Col><label>Area: <b>{interviewerInfo.skill}</b></label></Col>
+                    <Col><label>CV Reviewer: <b>{interviewerInfo.cvReviewer ? 'Yes' : 'No'}</b></label></Col>
                 </Row>
                 <Row className='info-modal-row'>
-                    <Col><label>Time: {interviewerInfo.timeAvailable}</label></Col>
+                    <Col><label>Specialization: <b>{interviewerInfo.specialization}</b></label></Col>
+                    <Col><label>BBSI Interviewer: <b>{interviewerInfo.bbsiInterviewer ? 'Yes' : 'No'}</b></label></Col>
+                </Row>
+                <br/>
+                <Row className='info-modal-row'>
+                    <Col><label>Availability: <b>{interviewerInfo.daysAvailable}</b></label></Col>
+                </Row>
+                <Row className='info-modal-row'>
+                    <Col><label>Time: <b>{interviewerInfo.timeAvailable}</b></label></Col>
                 </Row>
                 <Row className='info-modal-row'>
                     <Col>
-                        <label>Webex URL: {interviewerInfo.webexUrl}</label>
+                        <label>Webex URL: <a href={interviewerInfo.webexUrl} target="_blank">{interviewerInfo.webexUrl}</a></label>
                     </Col>
                 </Row>
                 <br/>
                 <Row className='info-modal-close-button-section'>
                     <Col>
-                        <Button className='info-modal-close-button' variant="outline-secondary" onClick={closeInterviewerInfoModal}>Close</Button>   
+                        <Button className='info-modal-close-button' variant="outline-dark" onClick={closeInterviewerInfoModal}>Close</Button>   
                     </Col>
                 </Row>
             </Modal.Body>
