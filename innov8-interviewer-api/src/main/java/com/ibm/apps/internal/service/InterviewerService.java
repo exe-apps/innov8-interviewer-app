@@ -44,6 +44,8 @@ public class InterviewerService {
 		interviewer.setBbsiInterviewer(updatedInterviewerInfo.isBbsiInterviewer());
 		interviewer.setDaysAvailable(updatedInterviewerInfo.getDaysAvailable());
 		interviewer.setTimeAvailable(updatedInterviewerInfo.getTimeAvailable());
+		interviewer.setWebexUrl(updatedInterviewerInfo.getWebexUrl());
+		interviewer.setImageUrl(updatedInterviewerInfo.getImageUrl());
 
 		return interviewerRepository.save(interviewer);
 	}
