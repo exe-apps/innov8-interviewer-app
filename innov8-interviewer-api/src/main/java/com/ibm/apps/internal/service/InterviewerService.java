@@ -40,8 +40,8 @@ public class InterviewerService {
 		interviewer.setEmail(updatedInterviewerInfo.getEmail());
 		interviewer.setSkill(updatedInterviewerInfo.getSkill());
 		interviewer.setSpecialization(updatedInterviewerInfo.getSpecialization());
-		interviewer.setCvReviewer(updatedInterviewerInfo.isCvReviewer());
-		interviewer.setBbsiInterviewer(updatedInterviewerInfo.isBbsiInterviewer());
+		interviewer.setCv(updatedInterviewerInfo.getCv());
+		interviewer.setBbsi(updatedInterviewerInfo.getBbsi());
 		interviewer.setDaysAvailable(updatedInterviewerInfo.getDaysAvailable());
 		interviewer.setTimeAvailable(updatedInterviewerInfo.getTimeAvailable());
 		interviewer.setWebexUrl(updatedInterviewerInfo.getWebexUrl());
