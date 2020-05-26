@@ -24,8 +24,8 @@ after_success:
 deploy:
     provider: elasticbeanstalk
     region: "ap-northeast-1"
-    app: "innov8-interviewer-app"
-    env: "Innov8InterviewerApp-env"
+    app: "innov8-interviewer-app-1"
+    env: "Innov8InterviewerApp1-env"
     bucket_name: "usaa-interviewer-app"
     bucket_path: "innov8-interviewer-app"
     on:

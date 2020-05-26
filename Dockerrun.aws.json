@@ -13,7 +13,7 @@
             "image": "cruzee/innov8-interviewer-api",
             "hostname": "interviewer-api",
             "essential": false,
-            "memory": 384
+            "memory": 512
         },
         {
             "name": "nginx",
