@@ -36,11 +36,11 @@ const InterviewersInfoModal = (props) => {
                 <br/>
                 <Row className='info-modal-row'>
                     <Col><label>Area: <b>{interviewerInfo.skill}</b></label></Col>
-                    <Col><label>CV Reviewer: <b>{interviewerInfo.cv}</b></label></Col>
+                    <Col><label>CV Reviewer: <b>{interviewerInfo.cvReviewer ? 'Yes' : 'No'}</b></label></Col>
                 </Row>
                 <Row className='info-modal-row'>
                     <Col><label>Specialization: <b>{interviewerInfo.specialization}</b></label></Col>
-                    <Col><label>BBSI Interviewer: <b>{interviewerInfo.bbsi}</b></label></Col>
+                    <Col><label>BBSI Interviewer: <b>{interviewerInfo.bbsiInterviewer ? 'Yes' : 'No'}</b></label></Col>
                 </Row>
                 <br/>
                 <Row className='info-modal-row'>

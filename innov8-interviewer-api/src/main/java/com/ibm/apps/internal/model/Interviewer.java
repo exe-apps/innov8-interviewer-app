@@ -26,9 +26,9 @@ public class Interviewer {
 	
 	private String specialization;
 	
-	private String cv;
+	private boolean cvReviewer;
 	
-	private String bbsi;
+	private boolean bbsiInterviewer;
 	
 	private String daysAvailable;
 	
@@ -56,13 +56,7 @@ public class Interviewer {
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-	public String getCv() {
-		return cv;
-	}
-	public void setCv(String cv) {
-		this.cv = cv;
-	}
-	
+
 	public String getDaysAvailable() {
 		return daysAvailable;
 	}
@@ -105,10 +99,16 @@ public class Interviewer {
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
-	public String getBbsi() {
-		return bbsi;
+	public boolean isCvReviewer() {
+		return cvReviewer;
 	}
-	public void setBbsi(String bbsi) {
-		this.bbsi = bbsi;
+	public void setCvReviewer(boolean cvReviewer) {
+		this.cvReviewer = cvReviewer;
+	}
+	public boolean isBbsiInterviewer() {
+		return bbsiInterviewer;
+	}
+	public void setBbsiInterviewer(boolean bbsiInterviewer) {
+		this.bbsiInterviewer = bbsiInterviewer;
 	}
 }
