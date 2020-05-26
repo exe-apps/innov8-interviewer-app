@@ -34,7 +34,7 @@ public class InterviewerController {
 	}
 	
 	@PostMapping
-	public Interviewer addDeveloper(@RequestBody Interviewer newInterviewer) {
+	public Interviewer addInterviewer(@RequestBody Interviewer newInterviewer) {
 		return interviewerService.addInterviewer(newInterviewer);
 	}
 	
