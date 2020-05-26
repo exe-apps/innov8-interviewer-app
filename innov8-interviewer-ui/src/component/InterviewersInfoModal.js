@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Figure from 'react-bootstrap/Figure'
-import unkownPic from '../img/unknown.jpg';
 import '../css/InterviewersInfoModal.css';
 
 const InterviewersInfoModal = (props) => {
@@ -17,9 +16,9 @@ const InterviewersInfoModal = (props) => {
     return (
         <Modal show={showInfoModal}>
             <Modal.Body>
-                <Row>
-                    <Figure>
-                        <Figure.Image className='figure-pic' src={unkownPic} />
+                <Row className='figure-row'>
+                    <Figure className='figure-box'>
+                        <Figure.Image className='figure-pic' src={interviewerInfo.imageUrl} width={120} height={120}/>
                         <Figure.Caption className='figure-name'>
                             <h1>{interviewerInfo.name}</h1>
                         </Figure.Caption>
@@ -27,10 +26,8 @@ const InterviewersInfoModal = (props) => {
                 </Row>
                 <Row className='info-modal-row'>
                     <Col><label>Email: <b>{interviewerInfo.email}</b></label></Col>
-                    
                 </Row>
                 <Row className='info-modal-row'>
-                    
                     <Col><label>Contact Number: <b>{interviewerInfo.contactNumber}</b></label></Col>
                 </Row>
                 <br/>

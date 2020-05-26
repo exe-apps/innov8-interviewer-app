@@ -1,10 +1,11 @@
+.figure-row {
+    justify-content: center;
+}
+
 .figure-pic {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 50%;
-    left: 50%;
 }
 
 .figure-name {

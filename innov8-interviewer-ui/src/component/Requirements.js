@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import Accordion from 'react-bootstrap/Accordion'
 
 class Requirements extends Component {
 

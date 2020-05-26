@@ -29,7 +29,7 @@ class InterviewersPage extends Component {
         return(
             <Container fluid>
                 {
-                    days.map((day, index) => {
+                    days.map((day) => {
                         return (
                                 <Fragment>
                                     <Row className='day-info'>
