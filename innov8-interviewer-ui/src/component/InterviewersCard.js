@@ -21,7 +21,7 @@ const InterviewersCard = (props) => {
                         return (
                             <Col md={4}>
                                 <Card border='dark' bg='dark' text='white' style={{ margin: 'auto auto 30px auto'}}>
-                                    <Card.Img className='interviewer-img' variant="top" src={unkownPic} />
+                                    <Card.Img className='interviewer-img' variant="top" src={interviewer.imageUrl} />
                                     <Card.Title className='interviewer-name'>{interviewer.name} <BadgeGenerator interviewer={interviewer}></BadgeGenerator></Card.Title>
                                     <Button className='interviewer-info-btn' variant="outline-dark" onClick={() => props.showInterviewerInfoModal(interviewer)}>See info</Button>
                                 </Card>
