@@ -5,7 +5,7 @@ services:
 
 before_install:
     - docker build -t cruzee/ui-app-test -f ./innov8-interviewer-ui/Dockerfile.dev ./innov8-interviewer-ui
-    - docker build -t cruzee/api-app-test -f ./innov8-interviewer-api/Dockerfile.dev ./innov8-interviewer-api
+#    - docker build -t cruzee/api-app-test -f ./innov8-interviewer-api/Dockerfile.dev ./innov8-interviewer-api
 
 script:
     - docker run -e CI=true cruzee/ui-app-test npm run test
