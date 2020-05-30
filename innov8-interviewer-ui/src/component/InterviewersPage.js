@@ -29,9 +29,9 @@ class InterviewersPage extends Component {
         return(
             <Container fluid>
                 {
-                    days.map((day) => {
+                    days.map((day, index) => {
                         return (
-                                <Fragment>
+                                <Fragment key={index}>
                                     <Row className='day-info'>
                                         <h1>{day}</h1>
                                     </Row>

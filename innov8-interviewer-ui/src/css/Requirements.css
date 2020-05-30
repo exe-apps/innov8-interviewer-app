@@ -1,0 +1,9 @@
+div.requirement-panel {
+    background-color: black;
+    border-radius: 20px;
+}
+
+div.requirement-panel h1,p,ul{
+    color: white;
+    font-weight: bold;
+}
