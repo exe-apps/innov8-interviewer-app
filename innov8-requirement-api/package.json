@@ -1,0 +1,23 @@
+{
+  "name": "innov8-requirement-api",
+  "version": "1.0.0",
+  "description": "Requirements api for interviewer app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"INFO: no test specified\" && exit 0",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "exe-apps",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
