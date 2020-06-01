@@ -7,9 +7,10 @@ const mongoose = require("mongoose");
 const requirementsRoutes = require('./routes/requirements');
 
 mongoose.connect(
-    process.env.MONGODB_URL,
-    {
-        useMongoClient: true
+  process.env.MONGODB_URL,
+    { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     }
 )
 .then(result => {
