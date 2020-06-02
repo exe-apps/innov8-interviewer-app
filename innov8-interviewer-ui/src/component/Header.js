@@ -18,7 +18,7 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-                <LinkContainer to='/'><Nav.Link className='navbar-link'>Interviewers</Nav.Link></LinkContainer>
+                <LinkContainer exact to='/'><Nav.Link className='navbar-link'>Interviewers</Nav.Link></LinkContainer>
                 <LinkContainer to='/requirements'><Nav.Link className='navbar-link'>Requirements</Nav.Link></LinkContainer>
                 <LinkContainer to='/contacts'><Nav.Link className='navbar-link'>Contact Us</Nav.Link></LinkContainer>
             </Nav>

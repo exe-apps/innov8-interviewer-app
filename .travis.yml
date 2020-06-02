@@ -14,18 +14,20 @@ after_success:
     - docker build -t cruzee/innov8-interviewer-ui ./innov8-interviewer-ui
     - docker build -t cruzee/innov8-interviewer-api ./innov8-interviewer-api
     - docker build -t cruzee/innov8-interviewer-nginx ./innov8-interviewer-nginx
+    - docker build -t cruzee/innov8-requirement-api ./innov8-requirement-api
     # Login to Docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Push image to DockerHub
     - docker push cruzee/innov8-interviewer-ui
     - docker push cruzee/innov8-interviewer-api
     - docker push cruzee/innov8-interviewer-nginx
+    - docker push cruzee/innov8-requirement-api
 
 deploy:
     provider: elasticbeanstalk
     region: "ap-northeast-1"
     app: "innov8-interviewer-app-1"
-    env: "Innov8InterviewerApp1-env"
+    env: "Innov8InterviewerApp4-env"
     bucket_name: "usaa-interviewer-app"
     bucket_path: "innov8-interviewer-app"
     on:

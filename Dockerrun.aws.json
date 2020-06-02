@@ -16,6 +16,13 @@
             "memory": 512
         },
         {
+            "name": "requirement-api",
+            "image": "cruzee/innov8-requirement-api",
+            "hostname": "requirement-api",
+            "essential": false,
+            "memory": 128
+        },
+        {
             "name": "nginx",
             "image": "cruzee/innov8-interviewer-nginx",
             "hostname": "nginx",
@@ -26,7 +33,7 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["interviewer-ui", "interviewer-api"],
+            "links": ["interviewer-ui", "interviewer-api", "requirement-api"],
             "memory": 128
         }
     ]
