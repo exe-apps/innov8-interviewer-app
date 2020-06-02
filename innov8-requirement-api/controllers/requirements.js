@@ -44,7 +44,6 @@ exports.createRequirement = (req, res, next) => {
     requirement
     .save()
     .then(result => {
-        console.log('Result', result);
         res.status(201).json({
             message: 'Requirement successfully added',
             createdRequirement: {
@@ -68,14 +67,6 @@ exports.createRequirement = (req, res, next) => {
 exports.editRequirement = (req, res, next) => {
     const reqId = req.params.reqId;
 
-    const requirement = new Requirement({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        type: req.body.type,
-        description: req.body.description,
-        scores: req.body.scores
-    });
-
     Requirement
     .findById(reqId)
     .then(requirement => {
@@ -86,7 +77,6 @@ exports.editRequirement = (req, res, next) => {
         return requirement.save();
     })
     .then(result => {
-        console.log('Result', result);
         res.status(200).json({
             message: 'Requirement successfully updated'
         })
@@ -105,7 +95,6 @@ exports.deleteRequirement = (req, res, next) => {
 
   Requirement.findByIdAndRemove(reqId)
     .then(result => {
-        console.log('Requirement successfully deleted');
         res.status(200).json({
             message: 'Requirement successfully deleted'
         });

@@ -69,6 +69,23 @@ services:
             - MONGO_DB_ROOT_USERNAME=root-user
             - MONGO_DB_ROOT_PASSWORD=mongodb_password
             - REQ_API_PORT=7070
+
+    contact-api:
+        depends_on:
+            - mongo-db
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./innov8-contact-api
+        volumes: 
+            - /app/node_modules
+            - ./innov8-contact-api:/app
+        ports:
+            - 6060:6060
+        environment:
+            - MONGODB_URL=mongodb://mongo:27017/usaa-requirements-app
+            - MONGO_DB_ROOT_USERNAME=root-user
+            - MONGO_DB_ROOT_PASSWORD=mongodb_password
+            - REQ_API_PORT=6060
     
     interviewer-ui:
         stdin_open: true
@@ -87,6 +104,7 @@ services:
             - interviewer-api
             - interviewer-ui
             - requirement-api
+            - contact-api
         build:
             dockerfile: Dockerfile.dev
             context: ./innov8-interviewer-nginx
