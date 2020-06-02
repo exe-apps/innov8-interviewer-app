@@ -15,6 +15,7 @@ after_success:
     - docker build -t cruzee/innov8-interviewer-api ./innov8-interviewer-api
     - docker build -t cruzee/innov8-interviewer-nginx ./innov8-interviewer-nginx
     - docker build -t cruzee/innov8-requirement-api ./innov8-requirement-api
+    - docker build -t cruzee/innov8-contact-api ./innov8-contact-api
     # Login to Docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Push image to DockerHub
@@ -22,6 +23,7 @@ after_success:
     - docker push cruzee/innov8-interviewer-api
     - docker push cruzee/innov8-interviewer-nginx
     - docker push cruzee/innov8-requirement-api
+    - docker push cruzee/innov8-contact-api
 
 deploy:
     provider: elasticbeanstalk
