@@ -18,7 +18,7 @@ class Contacts extends Component {
         const { contactList } = this.props;
 
         return(
-            <div>
+            <div className='content-body'>
                 {
                     contactList.map((contact, index) => {
                         return (

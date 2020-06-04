@@ -7,7 +7,7 @@ import '../css/Main.css'
 
 const Main = () => {
   return (
-    <main className='content-body'>
+    <main>
       <Switch>
         <Route exact path='/' component={InterviewersPage}/>
         <Route path='/requirements' component={Requirements}/>

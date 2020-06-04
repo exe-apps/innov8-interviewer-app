@@ -1,0 +1,16 @@
+.interviewer-page .instruction-panel {
+    background-color: #fcf0ed;
+    padding: 7em;
+    margin: 0;
+}
+
+.instruction-panel .instruction-bubble {
+    text-align: center;
+    background-color: white;
+    padding: 3em;
+    border-radius: 30px;
+}
+
+.instruction-panel .instruction-bubble h1,.instruction-text {
+    color: #0a1b4f;
+}

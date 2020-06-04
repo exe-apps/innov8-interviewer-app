@@ -17,7 +17,7 @@ class Requirements extends Component {
         const { requirementsList } = this.props;
 
         return(
-            <div>
+            <div className='content-body'>
                 {
                     requirementsList.map((requirement, index) => {
                         return (
