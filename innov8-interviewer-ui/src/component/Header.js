@@ -7,7 +7,7 @@ import '../css/Header.css'
 
 const Header = () => {
   return (
-    <Navbar variant="dark" className="nav-bar" expand="lg">
+    <Navbar variant="dark" className="nav-bar" expand="lg" fixed="top">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Brand>
             <img
