@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from "react-redux";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import RequirementsBandSuggestion from './RequirementsBandSuggestion';
 import '../css/Requirements.css';
 import { 
     getRequirementsList
@@ -17,35 +18,39 @@ class Requirements extends Component {
         const { requirementsList } = this.props;
 
         return(
-            <div className='content-body'>
-                {
-                    requirementsList.map((requirement, index) => {
-                        return (
-                            <Jumbotron fluid className='requirement-panel' key={index}>
-                                <Container>
-                                    <h1>{requirement.name}</h1>
-                                    <br/>
-                                    <p>{requirement.description}</p>
-                                    <br/>
-                                    {
-                                        requirement.scores.length > 0 ? <p>Must atleast reach the minimum scores below:</p> : null
-                                    }
-                                    {
-                                        requirement.scores.length > 0 && 
-                                        <ul>
-                                            {
-                                                requirement.scores.map((score, idx) => {
-                                                    return <li key={idx}>{score}</li>
-                                                })
-                                            }
-                                        </ul>
-                                    }
-                                </Container>
-                            </Jumbotron>
-                        )
-                    })
-                }
+            <div className='requirements-page'>
+                <RequirementsBandSuggestion />
+                <div className='content-body'>
+                    {
+                        requirementsList.map((requirement, index) => {
+                            return (
+                                <Jumbotron fluid className='requirement-panel' key={index}>
+                                    <Container>
+                                        <h1>{requirement.name}</h1>
+                                        <br/>
+                                        <p>{requirement.description}</p>
+                                        <br/>
+                                        {
+                                            requirement.scores.length > 0 ? <p>Must atleast reach the minimum scores below:</p> : null
+                                        }
+                                        {
+                                            requirement.scores.length > 0 && 
+                                            <ul>
+                                                {
+                                                    requirement.scores.map((score, idx) => {
+                                                        return <li key={idx}>{score}</li>
+                                                    })
+                                                }
+                                            </ul>
+                                        }
+                                    </Container>
+                                </Jumbotron>
+                            )
+                        })
+                    }
+                </div>
             </div>
+            
         );
     }
 }

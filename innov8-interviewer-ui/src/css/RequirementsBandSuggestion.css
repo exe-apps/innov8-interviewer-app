@@ -1,0 +1,20 @@
+.requirements-page {
+    padding-top: 125px
+}
+
+.requirements-page .band-req-panel {
+    background-color: black;
+    padding: 7em;
+    margin: 0;
+}
+
+.band-req-panel .band-req-bubble {
+    text-align: center;
+    background-color: white;
+    padding: 3em;
+    border-radius: 30px;
+}
+
+.band-req-panel .band-req-bubble h1,.instruction-text {
+    color: #0a1b4f;
+}
