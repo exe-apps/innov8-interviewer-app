@@ -38,6 +38,25 @@ public class Interviewer {
 	
 	private String imageUrl;
 	
+	public Interviewer() {}
+	
+	public Interviewer(String name, String contactNumber, String email, String skill, String specialization,
+			boolean cvReviewer, boolean bbsiInterviewer, String daysAvailable, String timeAvailable, String webexUrl,
+			String imageUrl) {
+		super();
+		this.name = name;
+		this.contactNumber = contactNumber;
+		this.email = email;
+		this.skill = skill;
+		this.specialization = specialization;
+		this.cvReviewer = cvReviewer;
+		this.bbsiInterviewer = bbsiInterviewer;
+		this.daysAvailable = daysAvailable;
+		this.timeAvailable = timeAvailable;
+		this.webexUrl = webexUrl;
+		this.imageUrl = imageUrl;
+	}
+	
 	public Long getInterviewerId() {
 		return interviewerId;
 	}
