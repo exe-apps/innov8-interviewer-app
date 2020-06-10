@@ -108,5 +108,8 @@ services:
         build:
             dockerfile: Dockerfile.dev
             context: ./innov8-interviewer-nginx
+        volumes:
+            - ./innov8-interviewer-nginx/local-cert:/etc/nginx/certs
         ports:
             - 80:80
+            - 443:443
