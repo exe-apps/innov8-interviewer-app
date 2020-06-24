@@ -13,11 +13,23 @@ import {
     showInterviewerInfoModal,
     closeInterviewerInfoModal
 } from '../redux/action/interviewer-action';
+import userManager from '../redux/config/userManager';
 
 class InterviewersPage extends Component {
 
     componentDidMount() {
-        this.props.getInterviewerList();
+        console.log('INT PAGE');
+        // console.log(this.props.oidcData);
+
+        userManager.getUser().then((user) => {
+            console.log(user);
+            // avoid page refresh errors
+            if (!user|| user.expired) {
+                return userManager.signinRedirect();
+            }
+        });
+
+        //this.props.getInterviewerList();
     }
 
     render() {
@@ -62,7 +74,8 @@ const mapStateToProps = state => {
     return { 
         interviewerList: state.interviewerData.interviewerList,
         interviewerInfo: state.interviewerData.interviewerInfo,
-        showInfoModal: state.interviewerData.showInterviewerInfoModal
+        showInfoModal: state.interviewerData.showInterviewerInfoModal,
+        // oidc: state.oidcData
     };
 };
 

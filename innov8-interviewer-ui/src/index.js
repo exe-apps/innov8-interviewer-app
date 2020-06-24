@@ -7,12 +7,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from './redux/store/configureStore.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import userManager from './redux/config/userManager';
+import { OidcProvider } from 'redux-oidc';
 
 ReactDOM.render((
   <Provider store={store}>
+    <OidcProvider store={store} userManager={userManager}>
       <BrowserRouter>
           <App />
       </BrowserRouter>
+    </OidcProvider>
   </Provider>
   ), document.getElementById('root')
 );
