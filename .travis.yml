@@ -29,10 +29,8 @@ deploy:
     provider: elasticbeanstalk
     region: "ap-northeast-1"
     app: "innov8-interviewer-app-1"
-    env: "Innov8InterviewerApp4-env"
+    env: "Innov8InterviewerApp1-env"
     bucket_name: "usaa-interviewer-app"
     bucket_path: "innov8-interviewer-app"
-    on:
-        branch: master
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY

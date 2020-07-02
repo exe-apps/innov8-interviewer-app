@@ -15,10 +15,6 @@
     width: 100%;
 }
 
-.staffing-page .staff-acc p,h1,label{
-    color:white
-}
-
 .staffing-page .staff-acc .acc-toggle{
     background-color: black;
 }
@@ -30,7 +26,15 @@
     padding-bottom: 40px;
 }
 
-.staffing-page .staff-acc p,h1{
+.staffing-page .staff-acc p {
+    color:white
+}
+
+.staffing-page .staff-acc h1{
+    color:white
+}
+
+.staffing-page .staff-acc label{
     color:white
 }
 

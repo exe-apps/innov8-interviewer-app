@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import '../css/StaffingPage.css';
 import { 
     getInterviewerList
@@ -74,6 +75,11 @@ class StaffingPage extends Component {
                             )
                         })
                     }
+                    <Row>
+                        <Col>
+                            <AddCircleIcon />
+                        </Col>
+                    </Row>
                 </Container>
             </div>
             
