@@ -1,5 +1,6 @@
 import { 
     GET_INTERVIEWER_LIST,
+    ADD_INTERVIEWER,
     SHOW_INTERVIEWER_INFO_MODAL,
     CLOSE_INTERVIEWER_INFO_MODAL,
     SHOW_STAFFING_INFO_MODAL,
@@ -19,6 +20,13 @@ const interviewerReducer = (state = initialState, action) => {
         return {
             ...state,
             interviewerList : action.payload
+        }
+    }
+
+    if(action.type === ADD_INTERVIEWER) {
+        return {
+            ...state,
+            showStaffingInfoModal : false
         }
     }
 

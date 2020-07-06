@@ -41,7 +41,7 @@ class StaffingPageAdminModal extends Component {
     
                 <Modal.Body>
                     <form onSubmit={handleSubmit}>
-                        <Field name='interviewerName' 
+                        <Field name='name' 
                             className='form-control' 
                             label='Name'
                             placeholder='Enter name'
@@ -62,9 +62,9 @@ class StaffingPageAdminModal extends Component {
                             component={Textfield} 
                             validate={Required} />
 
-                        <Field name='area' 
+                        <Field name='skill' 
                             className='form-control' 
-                            label='Area'
+                            label='Skill'
                             choices={AreaChoices} 
                             component={Dropdown} 
                             validate={Required} />
@@ -82,33 +82,38 @@ class StaffingPageAdminModal extends Component {
                             className='form-control' 
                             label='CV Reviewer'
                             choices={BooleanChoices} 
-                            component={Dropdown} />
+                            component={Dropdown}
+                            validate={Required} />
 
                         <Field name='bbsiReviewer' 
                             className='form-control' 
                             label='BBSI Reviewer'
                             choices={BooleanChoices} 
-                            component={Dropdown} />
+                            component={Dropdown}
+                            validate={Required} />
 
-                        <Field name='availability' 
+                        <Field name='daysAvailable' 
                             className='form-control' 
                             label='Availability'
                             placeholder='ex: Monday, Wednesday and Friday' 
                             popover={AvailabilityPopover}
-                            component={TextfieldWithPopover} />
+                            component={TextfieldWithPopover}
+                            validate={Required} />
                         
-                        <Field name='time' 
+                        <Field name='timeAvailable' 
                             className='form-control' 
                             label='Time'
                             placeholder='ex: 5PM to 6PM' 
                             popover={TimePopover}
-                            component={TextfieldWithPopover} />
+                            component={TextfieldWithPopover}
+                            validate={Required} />
 
-                        <Field name='webex' 
+                        <Field name='webexUrl' 
                             className='form-control' 
                             label='Webex'
                             placeholder='Enter webex url'
-                            component={Textfield} />
+                            component={Textfield}
+                            validate={Required} />
                         
                         <div className='button-panel'>
                             <button type="submit" 

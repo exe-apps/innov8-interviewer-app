@@ -11,6 +11,7 @@ import '../css/StaffingPage.css';
 import StaffingPageAdminModal from './StaffingPageAdminModal'
 import { 
     getInterviewerList,
+    addInterviewer,
     showStaffingInfoModal
 } from '../redux/action/interviewer-action';
 
@@ -21,8 +22,12 @@ class StaffingPage extends Component {
     }
 
     handleSubmit = (data, props, form) => {
-        console.log(data);
+        const {addInterviewer} = this.props;
         
+        // call webservice
+        addInterviewer(data);
+
+        // reset modal inputs on submit
         form.reset();
     }
 
@@ -109,6 +114,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getInterviewerList: () => dispatch(getInterviewerList()),
+        addInterviewer: (interviewer) => dispatch(addInterviewer(interviewer)),
         showStaffingInfoModal: () => dispatch(showStaffingInfoModal())
     };
 }
