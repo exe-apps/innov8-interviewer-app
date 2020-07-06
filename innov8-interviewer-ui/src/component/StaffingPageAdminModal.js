@@ -13,6 +13,7 @@ import {
     SpecializationChoices, 
     BooleanChoices
 } from '../redux/constant/ui-constants';
+import { Required, EmailValidator } from '../redux/validator/form-validator';
 import { 
     closeStaffingInfoModal
 } from '../redux/action/interviewer-action';
@@ -26,7 +27,8 @@ class StaffingPageAdminModal extends Component {
             showStaffingInfoModal,
             handleSubmit,
             pristine,
-            submitting
+            submitting,
+            reset
         } = this.props;
 
         return (
@@ -43,32 +45,37 @@ class StaffingPageAdminModal extends Component {
                             className='form-control' 
                             label='Name'
                             placeholder='Enter name'
-                            component={Textfield} />
+                            component={Textfield}
+                            validate={Required} />
                         
                         <Field name='email' 
                             className='form-control' 
                             label='Email'
                             placeholder='Enter email' 
-                            component={Textfield} />
+                            component={Textfield}
+                            validate={[Required, EmailValidator]} />
                         
                         <Field name='contactNumber' 
                             className='form-control' 
                             label='Contact Number'
                             placeholder='Enter contact number' 
-                            component={Textfield} />
+                            component={Textfield} 
+                            validate={Required} />
 
                         <Field name='area' 
                             className='form-control' 
                             label='Area'
                             choices={AreaChoices} 
-                            component={Dropdown} />
+                            component={Dropdown} 
+                            validate={Required} />
 
                         {areaValue === 'Java' && 
                             <Field name='specialization' 
                                 className='form-control' 
                                 label='Specialization'
                                 choices={SpecializationChoices} 
-                                component={Dropdown} />
+                                component={Dropdown} 
+                                validate={Required} />
                         }
 
                         <Field name='cvReviewer' 
@@ -112,7 +119,7 @@ class StaffingPageAdminModal extends Component {
 
                             <button type="button" 
                                 className="btn btn-dark cancel-button" 
-                                onClick={() => closeStaffingInfoModal()}>
+                                onClick={() => {closeStaffingInfoModal(); reset();}}>
                                     Cancel
                             </button>
                         </div>

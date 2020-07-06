@@ -5,3 +5,8 @@
 .button-panel .submit-button {
     margin-right: 40px;
 }
+
+.error {
+    font-weight: bold;
+    color: darkred;
+}
