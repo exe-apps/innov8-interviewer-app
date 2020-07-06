@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import '../css/Contacts.css';
 import Figure from 'react-bootstrap/Figure';
-import FigureImage from 'react-bootstrap/FigureImage';
-import FigureCaption from 'react-bootstrap/FigureCaption';
 import { 
     getContactList
 } from '../redux/action/contact-action';

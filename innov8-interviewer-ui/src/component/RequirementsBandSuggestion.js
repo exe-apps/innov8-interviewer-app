@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import BadgeGenerator from './BadgeGenerator';
 import '../css/RequirementsBandSuggestion.css';
 
 const RequirementsBandSuggestion = (props) => {

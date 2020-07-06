@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,8 +8,10 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import '../css/StaffingPage.css';
+import StaffingPageAdminModal from './StaffingPageAdminModal'
 import { 
-    getInterviewerList
+    getInterviewerList,
+    showStaffingInfoModal
 } from '../redux/action/interviewer-action';
 
 class StaffingPage extends Component {
@@ -18,15 +20,31 @@ class StaffingPage extends Component {
         this.props.getInterviewerList();
     }
 
+    handleSubmit = (data, props, form) => {
+        console.log(data);
+        
+        form.reset();
+    }
+
     render() {
-        const { interviewerList } = this.props;
+        const { 
+            interviewerList, 
+            showStaffingInfoModal 
+        } = this.props;
+        
         return(
             <div className='staffing-page'>
                 <Container fluid className='content-body'>
+                    <Row className='staffing-admin-panel'>
+                        <Col md={{ offset: 11 }}>
+                            <AddCircleIcon style={{ fontSize: 70 }} onClick={() => showStaffingInfoModal()} /> 
+                        </Col>
+                    </Row>
+                    <StaffingPageAdminModal onSubmit={this.handleSubmit} />  
                     { 
                         interviewerList.map((interviewerInfo, index) => {
                             return (
-                                <Row className='staff-row'>
+                                <Row className='staff-row' key={index}>
                                     <Accordion className='staff-acc' defaultActiveKey='0'>
                                         <Card className='acc-card'>
                                             <Accordion.Toggle className='acc-toggle' as={Card.Header} variant="link" eventKey={index}>
@@ -75,11 +93,6 @@ class StaffingPage extends Component {
                             )
                         })
                     }
-                    <Row>
-                        <Col>
-                            <AddCircleIcon />
-                        </Col>
-                    </Row>
                 </Container>
             </div>
             
@@ -93,10 +106,10 @@ const mapStateToProps = state => {
     };
 };
 
-
 const mapDispatchToProps = dispatch => {
     return {
         getInterviewerList: () => dispatch(getInterviewerList()),
+        showStaffingInfoModal: () => dispatch(showStaffingInfoModal())
     };
 }
 

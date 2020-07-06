@@ -1,16 +1,20 @@
 import { 
     GET_INTERVIEWER_LIST,
     SHOW_INTERVIEWER_INFO_MODAL,
-    CLOSE_INTERVIEWER_INFO_MODAL
+    CLOSE_INTERVIEWER_INFO_MODAL,
+    SHOW_STAFFING_INFO_MODAL,
+    CLOSE_STAFFING_INFO_MODAL
 } from '../constant/interviewer-constants';
 
 const initialState = {
     interviewerList: [],
     interviewerInfo: {},
-    showInterviewerInfoModal: false
+    showInterviewerInfoModal: false,
+    showStaffingInfoModal: false
 }
 
 const interviewerReducer = (state = initialState, action) => {
+
     if(action.type === GET_INTERVIEWER_LIST) {
         return {
             ...state,
@@ -30,6 +34,20 @@ const interviewerReducer = (state = initialState, action) => {
         return {
             ...state,
             showInterviewerInfoModal : false
+        }
+    }
+
+    if(action.type === SHOW_STAFFING_INFO_MODAL) {
+        return {
+            ...state,
+            showStaffingInfoModal : true
+        }
+    }
+
+    if(action.type === CLOSE_STAFFING_INFO_MODAL) {
+        return {
+            ...state,
+            showStaffingInfoModal : false
         }
     }
 

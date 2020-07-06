@@ -1,7 +1,9 @@
 import { 
     GET_INTERVIEWER_LIST,
     SHOW_INTERVIEWER_INFO_MODAL,
-    CLOSE_INTERVIEWER_INFO_MODAL
+    CLOSE_INTERVIEWER_INFO_MODAL,
+    SHOW_STAFFING_INFO_MODAL,
+    CLOSE_STAFFING_INFO_MODAL
 } from '../constant/interviewer-constants';
 import { INTERVIEWER_GET_API_URL } from '../constant/service-urls';
 import axios from 'axios';
@@ -24,7 +26,7 @@ export const showInterviewerInfoModal = (interviewer) => {
             {
                 type: SHOW_INTERVIEWER_INFO_MODAL,
                 interviewerInfo: interviewer,
-                showInterviewerInfoModal: true,
+                showInterviewerInfoModal: true
             }
         )
     }
@@ -35,7 +37,29 @@ export const closeInterviewerInfoModal = () => {
         dispatch(
             {
                 type: CLOSE_INTERVIEWER_INFO_MODAL,
-                showInterviewerInfoModal: false,
+                showInterviewerInfoModal: false
+            }
+        )
+    }
+}
+
+export const showStaffingInfoModal = () => {
+    return dispatch => {
+        dispatch(
+            {
+                type: SHOW_STAFFING_INFO_MODAL,
+                showStaffingInfoModal: true
+            }
+        )
+    }
+}
+
+export const closeStaffingInfoModal = () => {
+    return dispatch => {
+        dispatch(
+            {
+                type: CLOSE_STAFFING_INFO_MODAL,
+                showStaffingInfoModal: false
             }
         )
     }
