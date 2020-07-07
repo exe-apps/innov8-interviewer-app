@@ -1,6 +1,8 @@
 import { 
     GET_INTERVIEWER_LIST,
     ADD_INTERVIEWER,
+    UPDATE_INTERVIEWER,
+    SET_INTERVIEWER,
     SHOW_INTERVIEWER_INFO_MODAL,
     CLOSE_INTERVIEWER_INFO_MODAL,
     SHOW_STAFFING_INFO_MODAL,
@@ -11,7 +13,8 @@ const initialState = {
     interviewerList: [],
     interviewerInfo: {},
     showInterviewerInfoModal: false,
-    showStaffingInfoModal: false
+    showStaffingInfoModal: false,
+    eventFlow: 'ADD'
 }
 
 const interviewerReducer = (state = initialState, action) => {
@@ -27,6 +30,22 @@ const interviewerReducer = (state = initialState, action) => {
         return {
             ...state,
             showStaffingInfoModal : false
+        }
+    }
+
+    if(action.type === UPDATE_INTERVIEWER) {
+        return {
+            ...state,
+            showStaffingInfoModal : false,
+        }
+    }
+
+    if(action.type === SET_INTERVIEWER) {
+        return {
+            ...state,
+            interviewerInfo : action.interviewerInfo,
+            showStaffingInfoModal: action.showStaffingInfoModal,
+            eventFlow: action.eventFlow
         }
     }
 
@@ -48,13 +67,15 @@ const interviewerReducer = (state = initialState, action) => {
     if(action.type === SHOW_STAFFING_INFO_MODAL) {
         return {
             ...state,
-            showStaffingInfoModal : true
+            showStaffingInfoModal : true,
+            eventFlow : action.eventFlow
         }
     }
 
     if(action.type === CLOSE_STAFFING_INFO_MODAL) {
         return {
             ...state,
+            interviewerInfo: {},
             showStaffingInfoModal : false
         }
     }

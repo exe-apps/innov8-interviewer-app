@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import Modal from 'react-bootstrap/Modal';
-import InfoIcon from '@material-ui/icons/Info';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import AvailabilityPopover from './AvailabilityPopover';
 import TimePopover from './TimePopover';
 import { Textfield, TextfieldWithPopover, Dropdown } from './CustomInputs';
@@ -13,7 +11,7 @@ import {
     SpecializationChoices, 
     BooleanChoices
 } from '../redux/constant/ui-constants';
-import { Required, EmailValidator } from '../redux/validator/form-validator';
+import { Required, BooleanChecker, EmailValidator } from '../redux/validator/form-validator';
 import { 
     closeStaffingInfoModal
 } from '../redux/action/interviewer-action';
@@ -22,7 +20,8 @@ class StaffingPageAdminModal extends Component {
 
     render() {
         const { 
-            areaValue, 
+            skillValue,
+            eventFlow, 
             closeStaffingInfoModal, 
             showStaffingInfoModal,
             handleSubmit,
@@ -35,7 +34,9 @@ class StaffingPageAdminModal extends Component {
             <Modal show={showStaffingInfoModal}>
                 <Modal.Header>
                         <Modal.Title>
-                            Interviewer Modal
+                            {(eventFlow && eventFlow === 'ADD') ? 
+                                'Add Interviewer Profile' : 'Update Interviewer Profile'
+                            }
                         </Modal.Title>
                 </Modal.Header>
     
@@ -69,7 +70,7 @@ class StaffingPageAdminModal extends Component {
                             component={Dropdown} 
                             validate={Required} />
 
-                        {areaValue === 'Java' && 
+                        {skillValue === 'Java' && 
                             <Field name='specialization' 
                                 className='form-control' 
                                 label='Specialization'
@@ -83,14 +84,14 @@ class StaffingPageAdminModal extends Component {
                             label='CV Reviewer'
                             choices={BooleanChoices} 
                             component={Dropdown}
-                            validate={Required} />
+                            validate={BooleanChecker} />
 
-                        <Field name='bbsiReviewer' 
+                        <Field name='bbsiInterviewer' 
                             className='form-control' 
-                            label='BBSI Reviewer'
+                            label='BBSI Interviewer'
                             choices={BooleanChoices} 
                             component={Dropdown}
-                            validate={Required} />
+                            validate={BooleanChecker} />
 
                         <Field name='daysAvailable' 
                             className='form-control' 
@@ -143,10 +144,12 @@ StaffingPageAdminModal = reduxForm({
 
 const selector = formValueSelector('staffingPageAdminModal');
 const mapStateToProps = state => {
-    const areaValue = selector(state, 'area');
+    const skillValue = selector(state, 'skill');
     return { 
-        areaValue: areaValue,
-        showStaffingInfoModal: state.interviewerData.showStaffingInfoModal
+        skillValue: skillValue,
+        initialValues: state.interviewerData.interviewerInfo,
+        showStaffingInfoModal: state.interviewerData.showStaffingInfoModal,
+        eventFlow: state.interviewerData.eventFlow
     };
 };
 

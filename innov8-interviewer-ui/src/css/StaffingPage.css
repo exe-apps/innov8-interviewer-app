@@ -59,3 +59,11 @@
     height: 150px;
     width: 150px; 
 }
+
+.staffing-page .icon-row {
+    padding-left: 75%;
+}
+
+.staffing-page .icon-row .edit-icon{
+    margin-right: 25px;
+}
