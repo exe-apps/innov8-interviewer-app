@@ -35,6 +35,9 @@ class StaffingPage extends Component {
         if(eventFlow === 'ADD') {
             addInterviewer(data);
         } else {
+            if(data.skill !== 'Java') {
+                data.specialization = null;
+            }
             updateInterviewer(data.interviewerId, data);
         }
 
