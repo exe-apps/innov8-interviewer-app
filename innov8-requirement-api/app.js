@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const requirementsRoutes = require('./routes/requirements');
 
 mongoose.connect(
-  process.env.MONGODB_URL,
+  process.env.REQUIREMENT_MONGODB_URL,
     { 
       useNewUrlParser: true,
       useUnifiedTopology: true

@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const contactsRoutes = require('./routes/contacts');
 
 mongoose.connect(
-  process.env.MONGODB_URL,
+  process.env.CONTACT_MONGODB_URL,
     { 
       useNewUrlParser: true,
       useUnifiedTopology: true
