@@ -10,7 +10,17 @@ div.requirement-panel {
     margin-bottom: 5rem;
 }
 
-div.requirement-panel h1,p,ul{
+div.requirement-panel h1{
+    color: white;
+    font-weight: bold;
+}
+
+div.requirement-panel p{
+    color: white;
+    font-weight: bold;
+}
+
+div.requirement-panel ul{
     color: white;
     font-weight: bold;
 }

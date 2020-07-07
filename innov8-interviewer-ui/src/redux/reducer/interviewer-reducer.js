@@ -3,18 +3,23 @@ import {
     ADD_INTERVIEWER,
     UPDATE_INTERVIEWER,
     SET_INTERVIEWER,
+    SET_INTERVIEWER_ID,
     SHOW_INTERVIEWER_INFO_MODAL,
     CLOSE_INTERVIEWER_INFO_MODAL,
     SHOW_STAFFING_INFO_MODAL,
-    CLOSE_STAFFING_INFO_MODAL
+    CLOSE_STAFFING_INFO_MODAL,
+    SHOW_CONFIRMATION_MODAL,
+    CLOSE_CONFIRMATION_MODAL
 } from '../constant/interviewer-constants';
 
 const initialState = {
     interviewerList: [],
     interviewerInfo: {},
+    interviewerIdToDelete: '',
     showInterviewerInfoModal: false,
     showStaffingInfoModal: false,
-    eventFlow: 'ADD'
+    eventFlow: 'ADD',
+    showConfirmationModal: false,
 }
 
 const interviewerReducer = (state = initialState, action) => {
@@ -49,6 +54,13 @@ const interviewerReducer = (state = initialState, action) => {
         }
     }
 
+    if(action.type === SET_INTERVIEWER_ID) {
+        return {
+            ...state,
+            interviewerIdToDelete: action.interviewerIdToDelete
+        }
+    }
+
     if(action.type === SHOW_INTERVIEWER_INFO_MODAL) {
         return {
             ...state,
@@ -77,6 +89,20 @@ const interviewerReducer = (state = initialState, action) => {
             ...state,
             interviewerInfo: {},
             showStaffingInfoModal : false
+        }
+    }
+
+    if(action.type === SHOW_CONFIRMATION_MODAL) {
+        return {
+            ...state,
+            showConfirmationModal: true
+        }
+    }
+
+    if(action.type === CLOSE_CONFIRMATION_MODAL) {
+        return {
+            ...state,
+            showConfirmationModal: false
         }
     }
 

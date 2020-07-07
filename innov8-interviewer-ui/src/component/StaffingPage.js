@@ -10,13 +10,18 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import '../css/StaffingPage.css';
-import StaffingPageAdminModal from './StaffingPageAdminModal'
+import StaffingPageAdminModal from './StaffingPageAdminModal';
+import ConfirmationModal from './ConfirmationModal';
 import { 
     getInterviewerList,
     addInterviewer,
     updateInterviewer,
+    deleteInterviewer,
+    setIdToDelete,
     showUpdateStaffingInfoModal,
-    showStaffingInfoModal
+    showStaffingInfoModal,
+    showConfirmationModal,
+    closeConfirmationModal
 } from '../redux/action/interviewer-action';
 
 class StaffingPage extends Component {
@@ -48,8 +53,14 @@ class StaffingPage extends Component {
     render() {
         const { 
             interviewerList, 
+            deleteInterviewer,
+            setIdToDelete,
+            interviewerIdToDelete,
             showUpdateStaffingInfoModal,
-            showStaffingInfoModal
+            showStaffingInfoModal,
+            showConfirmationModal,
+            closeConfirmationModal,
+            showConfirmation
         } = this.props;
         
         return(
@@ -61,6 +72,11 @@ class StaffingPage extends Component {
                         </Col>
                     </Row>
                     <StaffingPageAdminModal onSubmit={this.handleSubmit} />  
+                    <ConfirmationModal 
+                        showConfirmationModal={showConfirmation}
+                        closeConfirmationModal={closeConfirmationModal}
+                        deleteInterviewer={deleteInterviewer}
+                        interviewerIdToDelete={interviewerIdToDelete}/>
                     { 
                         interviewerList.map((interviewerInfo, index) => {
                             return (
@@ -120,7 +136,8 @@ class StaffingPage extends Component {
                                                             onClick={() => showUpdateStaffingInfoModal(interviewerInfo)} />
                                                         <DeleteForeverIcon 
                                                             className='delete-icon' 
-                                                            style={{ fontSize: 50 }} />
+                                                            style={{ fontSize: 50 }} 
+                                                            onClick={() => {setIdToDelete(interviewerInfo.interviewerId); showConfirmationModal()}}/>
                                                     </Row>
                                                 </Card.Body>
                                             </Accordion.Collapse>
@@ -140,7 +157,9 @@ class StaffingPage extends Component {
 const mapStateToProps = state => {
     return { 
         interviewerList: state.interviewerData.interviewerList,
-        eventFlow: state.interviewerData.eventFlow
+        interviewerIdToDelete: state.interviewerData.interviewerIdToDelete,
+        eventFlow: state.interviewerData.eventFlow,
+        showConfirmation: state.interviewerData.showConfirmationModal
     };
 };
 
@@ -149,8 +168,12 @@ const mapDispatchToProps = dispatch => {
         getInterviewerList: () => dispatch(getInterviewerList()),
         addInterviewer: (interviewer) => dispatch(addInterviewer(interviewer)),
         updateInterviewer: (id, interviewer) => dispatch(updateInterviewer(id, interviewer)),
+        deleteInterviewer: (id) => dispatch(deleteInterviewer(id)),
+        setIdToDelete: (id) => dispatch(setIdToDelete(id)),
         showUpdateStaffingInfoModal: (interviewer) => dispatch(showUpdateStaffingInfoModal(interviewer)),
-        showStaffingInfoModal: (flow) => dispatch(showStaffingInfoModal(flow))
+        showStaffingInfoModal: (flow) => dispatch(showStaffingInfoModal(flow)),
+        showConfirmationModal: () => dispatch(showConfirmationModal()),
+        closeConfirmationModal: () => dispatch(closeConfirmationModal())
     };
 }
 
