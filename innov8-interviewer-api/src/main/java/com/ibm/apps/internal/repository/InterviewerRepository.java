@@ -8,4 +8,5 @@ import com.ibm.apps.internal.model.Interviewer;
 
 public interface InterviewerRepository extends JpaRepository<Interviewer, Long>{
 	List<Interviewer> findBySkill(String skill);
+	List<Interviewer> findBySkillOrBbsiInterviewerTrue(String skill);
 }

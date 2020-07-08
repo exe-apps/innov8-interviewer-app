@@ -15,6 +15,8 @@ public class InterviewerService {
 
 	@Autowired
 	private InterviewerRepository interviewerRepository;
+	
+	private final static String BBSI_CONSTANT = "BBSI"; 
 
 	public List<Interviewer> getAllInterviewers() {
 		return interviewerRepository.findAll();
@@ -27,7 +29,13 @@ public class InterviewerService {
 	
 	public List<Interviewer> getInterviewerBySkill(String skill) {
 		
-		List<Interviewer> interviewerList = interviewerRepository.findBySkill(skill);
+		List<Interviewer> interviewerList = null;
+		
+		if(skill.equals(BBSI_CONSTANT)) {
+			interviewerList = interviewerRepository.findBySkillOrBbsiInterviewerTrue(skill);
+		} else {
+			interviewerList = interviewerRepository.findBySkill(skill);
+		}
 		
 		if(interviewerList.size() == 0) {
 			throw new ResourceNotFoundException("Interviewer", "skill", skill);
