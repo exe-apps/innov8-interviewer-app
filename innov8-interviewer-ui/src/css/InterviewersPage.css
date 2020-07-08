@@ -20,3 +20,15 @@
     font-size: 3em;
     color: azure;
 }
+
+.interviewer-page .skill-picker-section {
+    width: 40%;
+    margin-bottom: 70px;
+    margin-left: -15px;
+}
+
+.interviewer-page .skill-picker-label {
+    font-size: 3em;
+    font-weight: bold;
+    color: azure;
+}

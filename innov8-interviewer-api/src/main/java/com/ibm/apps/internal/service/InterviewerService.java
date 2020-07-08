@@ -24,6 +24,17 @@ public class InterviewerService {
 		return interviewerRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Interviewer", "id", id));
 	}
+	
+	public List<Interviewer> getInterviewerBySkill(String skill) {
+		
+		List<Interviewer> interviewerList = interviewerRepository.findBySkill(skill);
+		
+		if(interviewerList.size() == 0) {
+			throw new ResourceNotFoundException("Interviewer", "skill", skill);
+		}
+		
+		return interviewerList;
+	}
 
 	public Interviewer addInterviewer(Interviewer newInterviewer) {
 		return interviewerRepository.save(newInterviewer);

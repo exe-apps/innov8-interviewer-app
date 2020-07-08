@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Figure from 'react-bootstrap/Figure'
+import Figure from 'react-bootstrap/Figure';
+import UnknownPic from '../img/unknown.jpg';
 import '../css/InterviewersInfoModal.css';
 
 const InterviewersInfoModal = (props) => {
@@ -18,7 +19,7 @@ const InterviewersInfoModal = (props) => {
             <Modal.Body>
                 <Row className='figure-row'>
                     <Figure className='figure-box'>
-                        <Figure.Image className='figure-pic' src={interviewerInfo.imageUrl} width={120} height={120}/>
+                        <Figure.Image className='figure-pic' src={interviewerInfo.imageUrl ? interviewerInfo.imageUrl : UnknownPic} width={120} height={120}/>
                         <Figure.Caption className='figure-name'>
                             <h1>{interviewerInfo.name}</h1>
                         </Figure.Caption>
