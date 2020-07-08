@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import UnknownPic from '../img/unknown.jpg';
 import '../css/StaffingPage.css';
 import StaffingPageAdminModal from './StaffingPageAdminModal';
 import ConfirmationModal from './ConfirmationModal';
@@ -86,7 +87,7 @@ class StaffingPage extends Component {
                                             <Accordion.Toggle className='acc-toggle' as={Card.Header} variant="link" eventKey={index}>
                                                 <Row className='acc-header' md={12}>
                                                     <Col md={2}>
-                                                        <Image className='acc-img' src={interviewerInfo.imageUrl} roundedCircle />
+                                                        <Image className='acc-img' src={interviewerInfo.imageUrl ? interviewerInfo.imageUrl : UnknownPic} roundedCircle />
                                                     </Col>
                                                     <Col md={10} className='acc-name'>
                                                         <h1>{interviewerInfo.name}</h1>

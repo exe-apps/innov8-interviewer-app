@@ -2,7 +2,6 @@ import {
     GET_INTERVIEWER_LIST,
     ADD_INTERVIEWER,
     UPDATE_INTERVIEWER,
-    DELETE_INTERVIEWER,
     SET_INTERVIEWER,
     SET_INTERVIEWER_ID,
     SHOW_INTERVIEWER_INFO_MODAL,
@@ -14,6 +13,7 @@ import {
 } from '../constant/interviewer-constants';
 import { 
     INTERVIEWER_GET_API_URL,
+    INTERVIEWER_GET_SKILL_API_URL,
     INTERVIEWER_POST_API_URL,
     INTERVIEWER_PUT_API_URL,
     INTERVIEWER_DELETE_API_URL
@@ -24,6 +24,19 @@ export const getInterviewerList = () => {
     return async dispatch => {
         try{
             let response = await axios.get(INTERVIEWER_GET_API_URL);
+            dispatch({type: GET_INTERVIEWER_LIST, payload: response.data});
+        } catch (err) {
+            // Implement error handling
+            console.log(err);
+        }
+    }
+}
+
+export const getInterviewerBySkill = (skill) => {
+    return async dispatch => {
+        try{
+            let INTERVIEWER_BY_SKILL_API = INTERVIEWER_GET_SKILL_API_URL+skill;
+            let response = await axios.get(INTERVIEWER_BY_SKILL_API);
             dispatch({type: GET_INTERVIEWER_LIST, payload: response.data});
         } catch (err) {
             // Implement error handling

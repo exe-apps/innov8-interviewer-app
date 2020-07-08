@@ -1,6 +1,7 @@
 package com.ibm.apps.internal.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.apps.internal.model.Interviewer;
@@ -24,8 +26,13 @@ public class InterviewerController {
 	private InterviewerService interviewerService;
 
 	@GetMapping
-	public List<Interviewer> getAllInterviewers() {
-		return interviewerService.getAllInterviewers();
+	public List<Interviewer> getAllInterviewers(@RequestParam("skill") Optional<String> skill) {
+		
+		if(skill.isPresent()) {
+			return interviewerService.getInterviewerBySkill(skill.get());
+		} else {
+			return interviewerService.getAllInterviewers();
+		}
 	}
 
 	@GetMapping("/{intId}")

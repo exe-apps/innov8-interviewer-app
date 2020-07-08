@@ -48,3 +48,18 @@ export const Dropdown = (props) => {
         </div>
     );
 }
+
+export const SkillPicker = (props) => {
+    return (
+        <div className='form-group skill-picker-section'>
+            <label htmlFor={props.name} className='skill-picker-label'>{props.label}</label>
+            <select {...props} className={props.className} onChange={props.onChange}>
+                <option></option>
+                {props.choices.map((choice, index) => {
+                        return <option key={index} value={choice.value}>{choice.label}</option>
+                    })
+                }
+            </select>
+        </div>
+    );
+}

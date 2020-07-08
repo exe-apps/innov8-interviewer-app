@@ -8,8 +8,11 @@ import InterviewersInstructionPanel from './InterviewersInstructionPanel';
 import interviewerImage from '../img/interview.jpg';
 import Image from 'react-bootstrap/Image';
 import '../css/InterviewersPage.css';
+import { SkillChoices, Days } from '../redux/constant/ui-constants';
+import { SkillPicker } from './CustomInputs';
 import { 
     getInterviewerList,
+    getInterviewerBySkill,
     showInterviewerInfoModal,
     closeInterviewerInfoModal
 } from '../redux/action/interviewer-action';
@@ -20,22 +23,31 @@ class InterviewersPage extends Component {
         this.props.getInterviewerList();
     }
 
-    render() {
-        const days = [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday'
-        ];
+    onChangeSkill = event => {
+        const { getInterviewerList, getInterviewerBySkill } = this.props;
+        const skill = event.target.value;
 
+        if(skill) {
+            getInterviewerBySkill(skill);
+        } else {
+            getInterviewerList();
+        }
+    }
+
+    render() {
         return(
             <div className='interviewer-page'>
                 <Image fluid src={interviewerImage} className='landing-img'></Image>
                 <InterviewersInstructionPanel></InterviewersInstructionPanel>
                 <Container fluid className='content-body'>
+                <SkillPicker 
+                    name='skill-picker'
+                    label='Skill'
+                    className='form-control' 
+                    choices={SkillChoices}
+                    onChange={this.onChangeSkill}/>
                     {
-                        days.map((day, index) => {
+                        Days.map((day, index) => {
                             return (
                                     <Fragment key={index}>
                                         <Row className='day-info'>
@@ -70,6 +82,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getInterviewerList: () => dispatch(getInterviewerList()),
+        getInterviewerBySkill: (skill) => dispatch(getInterviewerBySkill(skill)),
         showInterviewerInfoModal: (interviewerData) => dispatch(showInterviewerInfoModal(interviewerData)),
         closeInterviewerInfoModal: () => dispatch(closeInterviewerInfoModal())
     };

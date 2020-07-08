@@ -7,7 +7,7 @@ import TimePopover from './TimePopover';
 import { Textfield, TextfieldWithPopover, Dropdown } from './CustomInputs';
 import '../css/StaffingPageAdminModal.css';
 import { 
-    AreaChoices, 
+    SkillChoices, 
     SpecializationChoices, 
     BooleanChoices
 } from '../redux/constant/ui-constants';
@@ -66,7 +66,7 @@ class StaffingPageAdminModal extends Component {
                         <Field name='skill' 
                             className='form-control' 
                             label='Skill'
-                            choices={AreaChoices} 
+                            choices={SkillChoices} 
                             component={Dropdown} 
                             validate={Required} />
 
