@@ -79,7 +79,7 @@ class StaffingPage extends Component {
                         deleteInterviewer={deleteInterviewer}
                         interviewerIdToDelete={interviewerIdToDelete}/>
                     { 
-                        interviewerList.map((interviewerInfo, index) => {
+                        interviewerList && interviewerList.map((interviewerInfo, index) => {
                             return (
                                 <Row className='staff-row' key={index}>
                                     <Accordion className='staff-acc' defaultActiveKey='0'>
