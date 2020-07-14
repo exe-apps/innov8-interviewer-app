@@ -15,7 +15,8 @@ const InterviewersCard = (props) => {
     return (
         <CardDeck>
             {
-                interviewerList && interviewerList.map((interviewer, index) => {
+                interviewerList && 
+                interviewerList.length !== 0 && interviewerList.map((interviewer, index) => {
                     if(interviewer.daysAvailable && interviewer.daysAvailable.includes(props.day)){
                         return (
                             <Col md={4} key={index}>

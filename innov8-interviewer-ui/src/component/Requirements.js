@@ -23,7 +23,9 @@ class Requirements extends Component {
                 <RequirementsBandSuggestion />
                 <div className='content-body'>
                     {
-                        requirementsList && requirementsList.map((requirement, index) => {
+                        requirementsList && 
+                        requirementsList.length !== 0 && 
+                        requirementsList.map((requirement, index) => {
                             return (
                                 <Jumbotron fluid className='requirement-panel' key={index}>
                                     <Container>
