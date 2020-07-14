@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import RequirementsBandSuggestion from './RequirementsBandSuggestion';
 import '../css/Requirements.css';
+import { FullstackTech } from '../redux/constant/ui-constants';
 import { 
     getRequirementsList
 } from '../redux/action/requirement-action';
@@ -22,7 +23,7 @@ class Requirements extends Component {
                 <RequirementsBandSuggestion />
                 <div className='content-body'>
                     {
-                        requirementsList.map((requirement, index) => {
+                        requirementsList && requirementsList.map((requirement, index) => {
                             return (
                                 <Jumbotron fluid className='requirement-panel' key={index}>
                                     <Container>
@@ -42,6 +43,20 @@ class Requirements extends Component {
                                                     })
                                                 }
                                             </ul>
+                                        }
+                                        {
+                                            requirement.type === 'Java' &&
+                                            requirement.name.includes('Fullstack') && 
+                                            <div>
+                                                <p>Must atleast have knowledge on the following technologies:</p>
+                                                <ul>
+                                                    {
+                                                        FullstackTech.map((tech, idx) => {
+                                                            return <li key={idx}>{tech}</li>
+                                                        })
+                                                    }
+                                                </ul>
+                                            </div>
                                         }
                                     </Container>
                                 </Jumbotron>

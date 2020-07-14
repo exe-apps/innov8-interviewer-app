@@ -18,7 +18,7 @@ class Contacts extends Component {
         return(
             <div className='content-body'>
                 {
-                    contactList.map((contact, index) => {
+                    contactList && contactList.map((contact, index) => {
                         return (
                             <div className='contact-item'>
                                 <Figure key={index}>

@@ -65,7 +65,7 @@ services:
         ports:
             - 7070:7070
         environment:
-            - REQUIREMENT_MONGODB_URL=mongodb://mongo:27017/usaa-requirements-app
+            - REQUIREMENT_MONGODB_URL=mongodb://mongo-db:27017/usaa-requirements-app
             - MONGO_DB_ROOT_USERNAME=root-user
             - MONGO_DB_ROOT_PASSWORD=mongodb_password
             - REQ_API_PORT=7070
@@ -82,7 +82,7 @@ services:
         ports:
             - 6060:6060
         environment:
-            - CONTACT_MONGODB_URL=mongodb://mongo:27017/usaa-requirements-app
+            - CONTACT_MONGODB_URL=mongodb://mongo-db:27017/usaa-requirements-app
             - MONGO_DB_ROOT_USERNAME=root-user
             - MONGO_DB_ROOT_PASSWORD=mongodb_password
             - REQ_API_PORT=6060

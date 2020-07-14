@@ -27,3 +27,10 @@ export const Days = [
     'Thursday',
     'Friday'
 ];
+
+export const FullstackTech = [
+    'Gitlab / Gitlab CI',
+    'Docker',
+    'Openshift / Kubernetes',
+    'Gradle / Maven'
+];
